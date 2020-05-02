@@ -1,0 +1,8 @@
+# load the pachages
+library(DOSE)
+library(topGO)
+library(clusterProfiler)
+library(pathview)
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
