@@ -89,3 +89,43 @@ head(Jurkat_5ic_gen_S302_woRNA_agg)
 Jurkat_10ic_gen_S303_woRNA_agg <- aggregate(Jurkat_10ic_gen_S303_woRNA$expscore, by = list(Jurkat_10ic_gen_S303_woRNA$gene_name), FUN = mean)
 names(Jurkat_10ic_gen_S303_woRNA_agg) <- c("gene_name", "exp_mean")
 head(Jurkat_10ic_gen_S303_woRNA_agg)
+
+# entrezID
+## SupT1
+SupT1_0ic_gen_S296_woRNA_agg$gene_name <- as.character(SupT1_0ic_gen_S296_woRNA_agg$gene_name)
+SupT1_0ic_gen_S296_woRNA_agg.entrezID <- bitr(SupT1_0ic_gen_S296_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+SupT1_2ic_gen_S297_woRNA_agg$gene_name <- as.character(SupT1_2ic_gen_S297_woRNA_agg$gene_name)
+SupT1_2ic_gen_S297_woRNA_agg.entrezID <- bitr(SupT1_2ic_gen_S297_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+SupT1_5ic_gen_S298_woRNA_agg$gene_name <- as.character(SupT1_5ic_gen_S298_woRNA_agg$gene_name)
+SupT1_5ic_gen_S298_woRNA_agg.entrezID <- bitr(SupT1_5ic_gen_S298_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+SupT1_10ic_gen_S299_woRNA_agg$gene_name <- as.character(SupT1_10ic_gen_S299_woRNA_agg$gene_name)
+SupT1_10ic_gen_S299_woRNA_agg.entrezID <- bitr(SupT1_10ic_gen_S299_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+## Jurkat
+Jurkat_0ic_gen_S300_woRNA_agg$gene_name <- as.character(Jurkat_0ic_gen_S300_woRNA_agg$gene_name)
+Jurkat_0ic_gen_S300_woRNA_agg.entrezID <- bitr(Jurkat_0ic_gen_S300_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+Jurkat_2ic_gen_S301_woRNA_agg$gene_name <- as.character(Jurkat_2ic_gen_S301_woRNA_agg$gene_name)
+Jurkat_2ic_gen_S301_woRNA_agg.entrezID <- bitr(Jurkat_2ic_gen_S301_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+Jurkat_5ic_gen_S302_woRNA_agg$gene_name <- as.character(Jurkat_5ic_gen_S302_woRNA_agg$gene_name)
+Jurkat_5ic_gen_S302_woRNA_agg.entrezID <- bitr(Jurkat_5ic_gen_S302_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+Jurkat_10ic_gen_S303_woRNA_agg$gene_name <- as.character(Jurkat_10ic_gen_S303_woRNA_agg$gene_name)
+Jurkat_10ic_gen_S303_woRNA_agg.entrezID <- bitr(Jurkat_10ic_gen_S303_woRNA_agg$gene_name, fromType = "SYMBOL", toType =c("ENSEMBL","ENTREZID"), OrgDb = "org.Hs.eg.db")
+
+# KEGG pathway enrichment analysis
+## SupT1
+kkenrich.SupT1_0ic_gen_S296_woRNA_agg.entrezID <- enrichKEGG(gene = SupT1_0ic_gen_S296_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.SupT1_2ic_gen_S297_woRNA_agg.entrezID <- enrichKEGG(gene = SupT1_2ic_gen_S297_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.SupT1_5ic_gen_S298_woRNA_agg.entrezID <- enrichKEGG(gene = SupT1_5ic_gen_S298_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.SupT1_10ic_gen_S299_woRNA_agg.entrezID <- enrichKEGG(gene = SupT1_10ic_gen_S299_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+
+## Jurkat
+kkenrich.Jurkat_0ic_gen_S300_woRNA_agg.entrezID <- enrichKEGG(gene = Jurkat_0ic_gen_S300_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.Jurkat_2ic_gen_S301_woRNA_agg.entrezID <- enrichKEGG(gene = Jurkat_2ic_gen_S301_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.Jurkat_5ic_gen_S302_woRNA_agg.entrezID <- enrichKEGG(gene = Jurkat_5ic_gen_S302_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
+kkenrich.Jurkat_10ic_gen_S303_woRNA_agg.entrezID <- enrichKEGG(gene = Jurkat_10ic_gen_S303_woRNA_agg.entrezID, organism = 'hsa', pvalueCutoff = 1)
